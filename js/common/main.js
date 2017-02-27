@@ -21,7 +21,8 @@ requirejs.config({
         courseCategoryAdd:'/js/course/category_add',
         courseList:'/js/course/list',
         courseTopic:'/js/course/topic',
-        common:'/js/common/common'
+        common:'/js/common/common',
+        jqueryCookie:'/lib/jquery-cookie/jquery.cookie'
     },
     shim:{
         bootstrap:{
@@ -44,6 +45,9 @@ require(['jquery','bootstrap','common']);
             break;
         case '/html/teacher/list.html':
             require(['teacherList']);
+            break;
+        case '/html/home/login.html':
+            require(['homeLogin']);
             break;
 
     }
