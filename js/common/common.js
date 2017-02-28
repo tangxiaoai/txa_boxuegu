@@ -1,7 +1,7 @@
 /**
  * Created by Administrator on 2017/2/26.
  */
-define(['jquery'], function ($) {
+define(['jquery','jqueryCookie'], function ($,undefined) {
     //左侧导航下拉列表
     $('.navs a').on('click', function () {
         $(this).next().slideToggle();
@@ -15,51 +15,19 @@ define(['jquery'], function ($) {
                 location.href = '/html/home/login.html';  //location.href的意思就是当前打开的页面
             }
         });
-    //
 
     })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//    $.ajax({
-//        url:'/v6/login',    //是这样的：ajax要请求的
-//        type:'post',
-//        data:{
-//            tc_name:123456,
-//            tc_pass:123456
-//        },
-//        success: function () {
-//            console.log('成功')
-//        },
-//        errow: function () {
-//            console.log('失败')
-//        }
-//    })
-//    return false;
+    //设置左侧用户登录信息的展示
+    var userInfo=null;
+    userInfo=JSON.parse($.cookie('userInfor'));
+    console.log(12345);
+    try{
+        userInfo=JSON.parse($.cookie('userInfor'));
+        console.log(12345);
+    }catch(e){
+        userInfo={};
+        console.log(1234)
+    }
+    $('.aside .profile h4').html(userInfo.tc_name?userInfo.tc_name:'weimingming');
+    $('.aside .avatar>img').attr('src',userInfo.tc_avatar?userInfo.tc_avatar:'/img/default.png');
 })
