@@ -2,6 +2,17 @@
  * Created by Administrator on 2017/2/25.
  */
 define(['jquery','jqueryCookie'], function ($,undefined) {
+
+    //当用户打开login页面，在用户信息处显示上一个登录的用户的头像和用户名
+    var userInfor=null;          //为什么当用户退出之后上一个cookie已经清除了但是还能找到userInfor呢？？？？？？
+    try{
+        userInfor= JSON.parse($.cookie('userInfor'));
+    }catch(e){
+        userInfor={};
+    }
+    $('.login .avatar>img ').attr('src',userInfor.tc_avatar?userInfor.tc_avatar:'/img/default.png');
+    console.log(userInfor);
+    //给表单提交注册事件
     $('form').on('submit', function () {
             console.log(11);
         $.ajax({
@@ -17,8 +28,9 @@ define(['jquery','jqueryCookie'], function ($,undefined) {
                     location.href='/';
                 }
             }
-
         });
         return false;
     })
+
+
 })

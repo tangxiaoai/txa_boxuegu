@@ -6,6 +6,11 @@ define(['jquery','jqueryCookie'], function ($,undefined) {
     $('.navs a').on('click', function () {
         $(this).next().slideToggle();
     });
+
+    //让左侧导航a标签的样式随着当前的pathname相对应。即颜色相对别的a标签变深一点
+    var pathname=window.location.pathname;
+    $('.navs a').removeClass('active').filter('[href="'+pathname+'"]').addClass('active').parents('ul').show();//因为选择器需要被“”包起来，而属性选择器的值也需要被“”包起来，所以要把双引号放在单引号里面
+
     //点击退出
     $('#logOut').on('click', function () {
         $.post('v6/logout', function (data) {   //post的另一种用法，请求的路径，请求成功响应之后的回调
