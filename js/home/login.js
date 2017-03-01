@@ -1,6 +1,10 @@
 /**
  * Created by Administrator on 2017/2/25.
  */
+require(['nprogress'], function (nprogress) {
+    nprogress.done();
+})
+
 define(['jquery','jqueryCookie'], function ($,undefined) {
 
     //当用户打开login页面，在用户信息处显示上一个登录的用户的头像和用户名
