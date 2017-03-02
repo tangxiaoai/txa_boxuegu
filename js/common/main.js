@@ -24,7 +24,8 @@ requirejs.config({
         common:'/js/common/common',
         jqueryCookie:'/lib/jquery-cookie/jquery.cookie',
         nprogress:'/lib/nprogress/nprogress',
-        index:'/js/index'
+        index:'/js/index',
+        template:'/lib/artTemplate-3.0.1/template'
     },
     shim:{
         bootstrap:{
@@ -34,7 +35,7 @@ requirejs.config({
 });
 require(['jquery'], function ($) {
     $(document).on('ajaxStart', function () {
-        console.log(123456333333);
+
         $('.overlay').show()
     }).on('ajaxStop', function () {
         $('.overlay').hide();
@@ -51,7 +52,7 @@ require(['jquery','bootstrap','common']);
     var pathname=window.location.pathname;
     //判断有用户有没有登录信息，登录信息存储在PHPSESSID这个cookie里面
     require(['jquery','jqueryCookie'], function ($,undefined) {
-        console.log(111);
+
         var sessId=$.cookie('PHPSESSID');
         if(sessId && pathname=='/html/home/login.html'){   //判断是不是某个路径也需要用绝对路径
             location.href='/';

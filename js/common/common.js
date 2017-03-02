@@ -25,13 +25,13 @@ define(['jquery','jqueryCookie'], function ($,undefined) {
     //设置左侧用户登录信息的展示
     var userInfo=null;
     userInfo=JSON.parse($.cookie('userInfor'));
-    console.log(12345);
+
     try{
         userInfo=JSON.parse($.cookie('userInfor'));
-        console.log(12345);
+
     }catch(e){
         userInfo={};
-        console.log(1234)
+
     }
     $('.aside .profile h4').html(userInfo.tc_name?userInfo.tc_name:'weimingming');
     $('.aside .avatar>img').attr('src',userInfo.tc_avatar?userInfo.tc_avatar:'/img/default.png');
