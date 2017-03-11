@@ -1,11 +1,12 @@
 /**
  * Created by Administrator on 2017/2/25.
  */
-require(['nprogress'], function (nprogress) {
-    nprogress.done();
-})
+//require(['nprogress'], function (nprogress) {
+//    nprogress.done();
+//})
 
-define(['jquery','jqueryCookie'], function ($,undefined) {
+define(['jquery','jqueryCookie','nprogress'], function ($,undefined,nprogress) {
+    nprogress.done();
 
     //当用户打开login页面，在用户信息处显示上一个登录的用户的头像和用户名
     var userInfor=null;          //为什么当用户退出之后上一个cookie已经清除了但是还能找到userInfor呢？？？？？？

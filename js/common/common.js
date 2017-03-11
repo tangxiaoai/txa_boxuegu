@@ -13,7 +13,7 @@ define(['jquery','jqueryCookie'], function ($,undefined) {
 
     //点击退出
     $('#logOut').on('click', function () {
-        $.post('v6/logout', function (data) {   //post的另一种用法，请求的路径，请求成功响应之后的回调
+        $.post('/v6/logout', function (data) {   //post的另一种用法，请求的路径，请求成功响应之后的回调,真特么是生气啊，就是因为这里没加绝对路径，后面一直bug不断
             if(data.code==200){
                 console.log(data.code);//data是请求成功之后的数据
                 console.log(data.msg);
@@ -24,7 +24,7 @@ define(['jquery','jqueryCookie'], function ($,undefined) {
     })
     //设置左侧用户登录信息的展示
     var userInfo=null;
-    userInfo=JSON.parse($.cookie('userInfor'));
+    //userInfo=JSON.parse($.cookie('userInfor'));
 
     try{
         userInfo=JSON.parse($.cookie('userInfor'));

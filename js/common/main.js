@@ -4,8 +4,10 @@
 requirejs.config({
     baseUrl:'/',
     paths:{
-        jquery:'/lib/jquery/jquery.min',
-        bootstrap:'/lib/bootstrap/js/bootstrap.min',
+        jquery:'/node_modules/jquery/jquery.min',
+        //jquery:'/lib/jquery/jquery.min',
+        bootstrap:'/node_modules/bootstrap/dist/js/bootstrap.min',
+        //bootstrap:'/lib/bootstrap/js/bootstrap.min',
         userList:'/js/user/list',
         userProfile:'/js/user/profile',
         teacherAdd:'/js/teacher/add',
@@ -25,7 +27,10 @@ requirejs.config({
         jqueryCookie:'/lib/jquery-cookie/jquery.cookie',
         nprogress:'/lib/nprogress/nprogress',
         index:'/js/index',
-        template:'/lib/artTemplate-3.0.1/template'
+        template:'/node_modules/art-template/dist/template',
+        //template:'/lib/artTemplate-3.0.1/template',
+        util:'/js/common/util',
+        region:'/lib/region/jquery.region',
     },
     shim:{
         bootstrap:{
@@ -81,13 +86,13 @@ require(['jquery','bootstrap','common']);
             require(['courseAdd']);
             break;
         case'/html/course/add_step1.html':
-            require(['CourseAddstep1']);
+            require(['courseAddstep1']);
             break;
         case'/html/course/add_step2.html':
-            require(['CourseAddstep2']);
+            require(['courseAddstep2']);
             break;
         case'/html/course/add_step3.html':
-            require(['CourseAddstep3']);
+            require(['courseAddstep3']);
             break;
         case'/html/course/category.html':
             require(['courseCategory']);
@@ -109,6 +114,9 @@ require(['jquery','bootstrap','common']);
             break;
         case '/html/teacher/add.html':
             require(['teacherAdd']);
+            break;
+        case '/html/home/settings.html':
+            require(['homeSettings']);
             break;
 
     }

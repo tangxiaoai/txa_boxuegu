@@ -13,40 +13,7 @@
     <div class="main">
         <div class="container-fluid">
             <!-- 头部 -->
-            <div class="header">
-                <nav class="navbar navbar-custom">
-                    <div class="navbar-header">
-                        <a href="javascript:;" class="navbar-brand">
-                            <i class="fa fa-navicon"></i>
-                        </a>
-                    </div>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="javascript:;">
-                                <i class="fa fa-bell"></i>
-                                <span class="badge">8</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../settings.html">
-                                <i class="fa fa-user"></i>
-                                个人中心
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <i class="fa fa-sign-out"></i>
-                                退出
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <i class="fa fa-tasks"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>          
-            </div>
+            <?php include('../common/header.html')?>
             <!-- 讲师列表 -->
             <div class="body teacher-list">
                 <!-- 面包屑 -->
@@ -74,8 +41,9 @@
                                 <th>编号</th>
                                 <th>姓名</th>
                                 <th>昵称</th>
-                                <th>年龄</th>
+                                <th>出生日期</th>
                                 <th>性别</th>
+                                <th>入职日期</th>
                                 <th>手机号码</th>
                                 <th>操作</th>
                             </tr>
@@ -107,10 +75,11 @@
             <td>{{teacher['tc_roster']}}</td>
             <td>{{teacher['tc_birthday']}}</td>
             <td>{{teacher['tc_gender']==0?'男':'女'}}</td>
+            <td>{{teacher['tc_join_date']}}</td>
             <td>{{teacher['tc_cellphone']}}</td>
             <td dataid='{{teacher.tc_id}}' dataStatus="{{teacher.tc_status}}">
                 <a id="teacherView" href="#teacherModal" data-toggle="modal" class="btn btn-info btn-xs">查 看</a>
-                <a href="add.html" class="btn btn-info btn-xs">编 辑</a>
+                <a href="add.html?tc_id={{teacher.tc_id}}" class="btn btn-info btn-xs" id="teacherEdit">编 辑</a>
                 <a id="teacherStatus" href="javascript:;" class="btn btn-warning btn-xs">{{teacher['tc_status']==0?'注销':'开启'}}</a>
             </td>
         </tr>
@@ -128,6 +97,7 @@
                 <table class="table table-bordered table-condensed">
                     <tbody>
                     <tr>
+
                         <th>姓名:</th><td>{{tc_name}}</td>
                         <th>职位:</th><td colspan="3">讲师</td>
                         <td rowspan="4" width="128">
@@ -142,7 +112,7 @@
                     </tr>
                     <tr>
                         <th>性别:</th><td>{{tc_gender==0?'男':'女'}}</td>
-                        <th>入职日期:</th><td colspan="3">{{tc_join_data}}</td>
+                        <th>入职日期:</th><td colspan="3">{{tc_join_date}}</td>
                     </tr>
                     <tr>
                         <th>手机号码:</th><td colspan="2">{{tc_cellphone}}</td>
